@@ -1,0 +1,38 @@
+<div class="container">
+  <a class="btn btn=primary" routerLink="">Add Task</a>
+  <a class="btn btn=primary">View Task List</a>
+
+  <div><input type="text" [(ngModel)]="queryString" id="search" placeholder="Search by task description"></div>
+  <div><input type="text" [(ngModel)]="queryString1" id="search1" placeholder="Search by task Id"></div>
+
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>Task ID</th>
+      <th>Parent ID</th>
+      <th>Task Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Priority</th>
+    </tr>
+    <tr *ngFor="let task of tasklist | filterpipe: queryString:queryString1">
+      <td>
+        <a [routerLink]="['/edittask',task.taskId]">{{task.taskId}}</a>
+      </td>
+      <td>
+        {{task.parentId}}
+      </td>
+      <td>
+        {{task.taskDesk}}
+      </td>
+      <td>
+        {{task.startDate}}
+      </td>
+      <td>
+        {{task.endDate}}
+      </td>
+      <td>
+        {{task.priority}}
+      </td>
+    </tr>
+  </table>
+</div>

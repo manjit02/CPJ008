@@ -1,0 +1,39 @@
+<div class="container">
+  <a class="btn btn=primary">Add Task</a>
+  <a class="btn btn=primary" routerLink="/viewtasks">View Task List</a>
+  <form [formGroup]="taskform" (ngSubmit)="submitTask()" novalidate>
+    <div *ngIf="validMessage != ''">
+      <h3 class="has-info">{{validMessage}}</h3>
+    </div>
+    <div class="form-group">
+      <label>Task</label>
+      <input type="text" class="form-control" formControlName="taskId" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label>Priority</label>
+      <input type="range" min="0" max="30" value="10" class="form-control" formControlName="priority" required/>
+    </div>
+    <div class="form-group">
+      <label>Parent Task</label>
+      <input type="text" class="form-control" formControlName="parentId" required/>
+    </div>
+    <div class="form-group">
+      <label>Task Description</label>
+      <input type="text" class="form-control" formControlName="taskDesk" required/>
+    </div>
+    <div class="form-group">
+      <label>Start Date</label>
+      <input type="date" class="form-control" formControlName="startDate" required/>
+    </div>
+    <div class="form-group">
+      <label>End Date</label>
+      <input type="date" class="form-control" formControlName="endDate" required/>
+    </div>
+    <div>
+    <div>
+      <button type="submit" class="btn btn-primary" >Add Task</button>
+      <button type="button" class="btn btn-primary" (click)="resetForm()">Reset</button>
+    </div>
+    </div>
+  </form>
+</div>
